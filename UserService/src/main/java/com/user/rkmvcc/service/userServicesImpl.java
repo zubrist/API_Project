@@ -1,6 +1,7 @@
 package com.user.rkmvcc.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class userServicesImpl implements UserServices{
 		
 	}
 	@Override
-	public List<User> getUser() {
+	public List<User> getUsers() {
 		
 		return userDao.findAll() ;
 	}
@@ -30,5 +31,10 @@ public class userServicesImpl implements UserServices{
 		return user;
 
 }
+	@Override
+	public Optional<User> getUser(String userId) {
+
+		return userDao.findById(userId);
+	}
 }
 	
